@@ -391,28 +391,28 @@ write.table(merge(A1,
                   by.y="first_accession", by.x="Accession", all.y=TRUE),
             file=paste0("proteins.tsv"), sep="\t", row.names = FALSE)
 
-# write.table(merge(pep.db,
-#                   A1,by.x="first_accession", by.y="Accession", all.x=TRUE),
-#             file=paste0(path.out, "peptides.tsv"), sep="\t", row.names = FALSE)
-# 
-# ############# Tar output files that are too big
-# 
-# tar(tarfile = "peptides_perMGF.tar.gz", files = list.files(path = path.out, pattern = "peptides-", full.names = TRUE), compression = "gzip")
-# tar(tarfile = "PSMs_perMGF.tar.gz", files = list.files(path = path.out, pattern = "PSMs.filtered.accessions.sorted-", full.names = TRUE), compression = "gzip")
-# tar(tarfile = "peptides.tar.gz", files = paste0(path.out, "peptides.tsv"), compression = "gzip")
-# 
-# ########## Remove files if they were compressed
-# if (all(file.exists(list.files(path = path.out, pattern = "peptides-", full.names = TRUE))) & file.exists(paste0(path.out, "peptides.tsv")) & file.exists("peptides.tar.gz") & file.exists("peptides_perMGF.tar.gz")) {
-#   #Delete file if it exists
-#   file.remove(paste0(path.out, "peptides.tsv"))
-#   file.remove(list.files(path = path.out, pattern = "peptides-", full.names = TRUE))
-# }
-# 
-# if (all(file.exists(list.files(path = path.out, pattern = "PSMs.filtered.accessions.sorted-", full.names = TRUE))) & file.exists("PSMs_perMGF.tar.gz")) {
-#   #Delete file if it exists
-#   file.remove(list.files(path = path.out, pattern = "PSMs.filtered.accessions.sorted-", full.names = TRUE))
-# }
-# 
+write.table(merge(pep.db,
+                   A1,by.x="first_accession", by.y="Accession", all.x=TRUE),
+             file=paste0(path.out, "peptides.tsv"), sep="\t", row.names = FALSE)
+ 
+############# Tar output files that are too big
+ 
+tar(tarfile = "peptides_perMGF.tar.gz", files = list.files(path = path.out, pattern = "peptides-", full.names = TRUE), compression = "gzip")
+tar(tarfile = "PSMs_perMGF.tar.gz", files = list.files(path = path.out, pattern = "PSMs.filtered.accessions.sorted-", full.names = TRUE), compression = "gzip")
+tar(tarfile = "peptides.tar.gz", files = paste0(path.out, "peptides.tsv"), compression = "gzip")
+ 
+########## Remove files if they were compressed
+if (all(file.exists(list.files(path = path.out, pattern = "peptides-", full.names = TRUE))) & file.exists(paste0(path.out, "peptides.tsv")) & file.exists("peptides.tar.gz") & file.exists("peptides_perMGF.tar.gz")) {
+   #Delete file if it exists
+   file.remove(paste0(path.out, "peptides.tsv"))
+   file.remove(list.files(path = path.out, pattern = "peptides-", full.names = TRUE))
+ }
+ 
+ if (all(file.exists(list.files(path = path.out, pattern = "PSMs.filtered.accessions.sorted-", full.names = TRUE))) & file.exists("PSMs_perMGF.tar.gz")) {
+   #Delete file if it exists
+   file.remove(list.files(path = path.out, pattern = "PSMs.filtered.accessions.sorted-", full.names = TRUE))
+ }
+ 
 
 ############## plot before normalization
 ggplot(data=prot.db, aes(ms_sample, log2(NSAF)))+
