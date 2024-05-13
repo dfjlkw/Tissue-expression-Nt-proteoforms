@@ -1,7 +1,7 @@
 # Tissue-expression-Nt-proteoforms
 This repository contains code and output of the analysis of N-terminal proteoform expression in human tissues. Input dataset and large output files can be downloaded from PRIDE repository project PXD039339. This repository is part of a publication:
 
-**N-terminal proteoforms may engage in different protein complexes**
+**[N-terminal proteoforms may engage in different protein complexes](https://pubmed.ncbi.nlm.nih.gov/37316325/)**
 
 Annelies Bogaert 1,2 , Daria Fijalkowska 1,2, An Staes 1,2, Tessa Van de Steene 1,2, Marnik Vuylsteke 3, Charlotte Stadler 4 , Sven Eyckerman 1,2, Kerstin Spirohn 5,6,7, Tong Hao 5,6,7,  Michael A. Calderwoo d5,6,7 and Kris Gevaert 1,2,*
 
